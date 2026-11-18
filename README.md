@@ -41,13 +41,13 @@ endpoint URL and model name of any OpenAI-compatible provider. Set them in `.env
 | `LLM_BASE_URL` | The provider's OpenAI-compatible endpoint, e.g. `https://api.openai.com/v1` |
 | `LLM_MODEL` | The model to draft with, e.g. `gpt-5-mini` |
 | `LLM_PRICE_IN`, `LLM_PRICE_OUT` | The model's $ per 1M input/output tokens, so `--budget` can cap spend |
-| `FORTUNA_API_KEY` | Your Fortuna API key, once issued |
+| `FORTUNA_API_KEY` | Your Fortuna API key (create one at https://fortuna.cc/settings/keys) |
 
 `.env.example` is filled in for DeepSeek. [Model provider](#model-provider) has examples for
 other providers.
 
 ```bash
-cp .env.example .env      # then set LLM_API_KEY, LLM_BASE_URL, LLM_MODEL (and FORTUNA_API_KEY)
+cp .env.example .env      # then set LLM_API_KEY, LLM_BASE_URL, LLM_MODEL and FORTUNA_API_KEY
 uv sync
 uv run trueo-discover
 ```
