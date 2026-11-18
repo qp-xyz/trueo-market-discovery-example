@@ -32,8 +32,22 @@ integrity standards. Anything it cannot settle in code is left for Trueo's revie
 
 Requires Python 3.12+ and [uv](https://docs.astral.sh/uv/).
 
+The script does not include a language model. You need to supply your own: an API key, plus the
+endpoint URL and model name of any OpenAI-compatible provider. Set them in `.env`:
+
+| Setting | What to put there |
+|---|---|
+| `LLM_API_KEY` | Your provider's API key (required) |
+| `LLM_BASE_URL` | The provider's OpenAI-compatible endpoint, e.g. `https://api.openai.com/v1` |
+| `LLM_MODEL` | The model to draft with, e.g. `gpt-5-mini` |
+| `LLM_PRICE_IN`, `LLM_PRICE_OUT` | The model's $ per 1M input/output tokens, so `--budget` can cap spend |
+| `FORTUNA_API_KEY` | Your Fortuna API key, once issued |
+
+`.env.example` is filled in for DeepSeek. [Model provider](#model-provider) has examples for
+other providers.
+
 ```bash
-cp .env.example .env      # add LLM_API_KEY (and FORTUNA_API_KEY once issued)
+cp .env.example .env      # then set LLM_API_KEY, LLM_BASE_URL, LLM_MODEL (and FORTUNA_API_KEY)
 uv sync
 uv run trueo-discover
 ```
